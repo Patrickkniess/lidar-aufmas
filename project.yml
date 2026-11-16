@@ -1,0 +1,30 @@
+# Optional: Projekt automatisch erzeugen mit XcodeGen
+#   brew install xcodegen
+#   cd LidarAufmass && xcodegen
+#   open LidarAufmass.xcodeproj
+name: LidarAufmass
+options:
+  bundleIdPrefix: de.meinname
+  deploymentTarget:
+    iOS: "17.0"
+targets:
+  LidarAufmass:
+    type: application
+    platform: iOS
+    sources: [Sources]
+    info:
+      path: Info.plist
+      properties:
+        CFBundleDisplayName: LiDAR-Aufmaß
+        NSCameraUsageDescription: Die Kamera und der LiDAR-Scanner werden zum Aufmessen von Räumen benötigt.
+        UIFileSharingEnabled: true
+        LSSupportsOpeningDocumentsInPlace: true
+        UILaunchScreen: {}
+        UIRequiredDeviceCapabilities: [arkit]
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: de.meinname.LidarAufmass
+        SWIFT_VERSION: "5.0"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        CODE_SIGN_STYLE: Automatic
